@@ -1,8 +1,8 @@
 ﻿spring:
   profiles:
     active:
-    - dev
----
+    - test
+---    
 server:
   port: 8001
 
@@ -14,7 +14,7 @@ mybatis:
 spring:
    profiles: dev
    application: 
-    name: microservicecloud-config-dept-client                            # 注册进eureka的名字
+    name: microservicecloud-dept                            # 注册进eureka的名字
    datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
@@ -26,15 +26,14 @@ spring:
       initial-size: 5                                       # 初始化连接数
       max-total: 5                                          # 最大连接数
       max-wait-millis: 200                                  # 等待连接获取的最大超时时间
- 
 
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url: 
       #defaultZone: http://localhost:7001/eureka
-      defaultZone: http://eureka7001.com:7001/eureka/    
+      defaultZone: http://eureka7001.com:7001/eureka/
   instance:
-    instance-id: microservicecloud-dept8001
+    instance-id: microservicecloud-config-dept8001
     prefer-ip-address: true     #访问路径可以显示IP地址     
 
 info: 
@@ -42,9 +41,9 @@ info:
   company.name: www.hczy.com
   build.artifactId: $project.artifactId$
   build.version: $project.version$
- ---
+---
 server:
-  port: 8002
+  port: 8001
 
 mybatis:
   config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
@@ -52,9 +51,9 @@ mybatis:
   mapper-locations:
   - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
 spring:
-   profiles: dev
+   profiles: test
    application: 
-    name: microservicecloud-config-dept-client                         # 注册进eureka的名字
+    name: microservicecloud-dept                            # 注册进eureka的名字
    datasource:
     type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
     driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
@@ -72,15 +71,14 @@ eureka:
   client: #客户端注册进eureka服务列表内
     service-url: 
       #defaultZone: http://localhost:7001/eureka
-      defaultZone: http://eureka7001.com:7001/eureka/    
+      defaultZone: http://eureka7001.com:7001/eureka/
   instance:
-    instance-id: microservicecloud-dept8001
+    instance-id: microservicecloud-config-dept8001
     prefer-ip-address: true     #访问路径可以显示IP地址     
 
 info: 
   app.name: springcloud-test
   company.name: www.hczy.com
   build.artifactId: $project.artifactId$
-  build.version: $project.version$
-       
+  build.version: $project.version$    
     
