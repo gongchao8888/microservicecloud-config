@@ -4,7 +4,7 @@
     - dev
 ---
 server:
-  port: 7004 #注册中心地址
+  port: 7001 #注册中心地址
 spring:
   profiles: dev  #开发环境
   application:
